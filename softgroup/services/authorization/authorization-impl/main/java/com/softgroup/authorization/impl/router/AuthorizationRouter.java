@@ -1,4 +1,4 @@
-package com.softgroup.authorization.api.router;
+package com.softgroup.authorization.impl.router;
 
 import com.softgroup.common.protocol.Request;
 import com.softgroup.common.protocol.Response;
@@ -16,7 +16,7 @@ import java.util.Map;
  * Created by polev on 24.02.2017.
  */
 @Component
-public class HandleRouter<T extends RouterHandler> implements RouterHandler {
+public class AuthorizationRouter<T extends RouterHandler> implements RouterHandler {
 
     private Map<String, T> handlerMap;
 

@@ -1,19 +1,22 @@
-package com.softgroup.authorization.api.router;
+package com.softgroup.authorization.impl.handler;
 
+import com.softgroup.authorization.api.router.AuthorizationRouterHandler;
 import com.softgroup.common.protocol.Request;
 import com.softgroup.common.protocol.Response;
-import com.softgroup.common.router.api.RouterHandler;
+import org.springframework.stereotype.Component;
 
 /**
  * Created by polev on 25.02.2017.
  */
-public class AuthorizationRouterHandlerSmsmConfirm implements RouterHandler {
+
+@Component
+public class AuthorizationRouterHandlerRegister implements AuthorizationRouterHandler {
     public String getRouteKey(Request<?> msg) {
         return null;
     }
 
     public String getName() {
-        return "sms_confirm";
+        return "register";
     }
 
     public Response<?> handle(Request<?> msg) {
