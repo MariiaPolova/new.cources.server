@@ -18,8 +18,9 @@ public abstract class AbstractRouterHandler<T extends Handler> implements Router
 
 	@PostConstruct
 	public void init(){
-		for(T handler : handlers)
+		for(T handler : handlers) {
 			handlerMap.put(handler.getName(), handler);
+		}
 	}
 
 	public String getName() {

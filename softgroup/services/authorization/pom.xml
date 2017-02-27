@@ -14,7 +14,8 @@
 	<modules>
 		<module>authorization-api</module>
 		<module>authorization-imp</module>
-	</modules>
+        <module>authorization-impl</module>
+    </modules>
 
 	<dependencyManagement>
 		<dependencies>
