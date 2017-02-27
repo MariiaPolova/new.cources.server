@@ -17,11 +17,12 @@ public abstract class AbstractRequestHandler<T extends RequestData, R extends Re
 	public Response<R> handle(Request<?> msg) {
 		Request<T> requestObj = new Request<T>();
 		requestObj.setHeader(msg.getHeader());
+		requestObj.setData((T)msg.getData());
 
 		//requestObj is created after Jackson mapper conversion
 		return doHandle(requestObj);
 	}
 
-	public abstract Response<R> doHandle(Request<?> requestObj);
+	public abstract Response<R> doHandle(Request<T> requestObj);
 
 }
