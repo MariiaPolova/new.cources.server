@@ -1,12 +1,12 @@
 package handler;
 
-import com.softgroup.authorization.api.message.SmsConfirmRequest;
-import com.softgroup.authorization.api.message.SmsConfirmResponse;
+import com.softgroup.authorization.api.message.RegisterRequest;
+import com.softgroup.authorization.api.message.RegisterResponse;
 import com.softgroup.authorization.api.router.AuthorizationRequestHandler;
+import com.softgroup.authorization.api.router.AuthorizationRouterHandler;
 import com.softgroup.common.protocol.Request;
 import com.softgroup.common.protocol.Response;
 import com.softgroup.common.router.api.AbstractRequestHandler;
-import com.softgroup.common.router.api.RouterHandler;
 import org.springframework.stereotype.Component;
 
 /**
@@ -14,15 +14,16 @@ import org.springframework.stereotype.Component;
  */
 
 @Component
-public class AuthorizationRequestSmsConfirmHandler
-        extends AbstractRequestHandler<SmsConfirmRequest, SmsConfirmResponse>
+public class RegisterRequestHandler
+        extends AbstractRequestHandler<RegisterRequest, RegisterResponse>
         implements AuthorizationRequestHandler {
 
     public String getName() {
-        return "sms_confirm";
+        return "register";
     }
 
-    public Response<SmsConfirmResponse> doHandle(Request<?> requestObj) {
+    @Override
+    public Response<RegisterResponse> doHandle(Request<RegisterRequest> requestObj) {
         return null;
     }
 }

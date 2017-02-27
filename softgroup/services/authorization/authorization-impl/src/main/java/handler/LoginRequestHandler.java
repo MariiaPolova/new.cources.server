@@ -1,7 +1,7 @@
 package handler;
 
-import com.softgroup.authorization.api.message.RegisterRequest;
-import com.softgroup.authorization.api.message.RegisterResponse;
+import com.softgroup.authorization.api.message.LoginRequest;
+import com.softgroup.authorization.api.message.LoginResponse;
 import com.softgroup.authorization.api.router.AuthorizationRequestHandler;
 import com.softgroup.authorization.api.router.AuthorizationRouterHandler;
 import com.softgroup.common.protocol.Request;
@@ -14,15 +14,18 @@ import org.springframework.stereotype.Component;
  */
 
 @Component
-public class AuthorizationRequestRegisterHandler
-        extends AbstractRequestHandler<RegisterRequest, RegisterResponse>
+public class LoginRequestHandler
+        extends AbstractRequestHandler<LoginRequest, LoginResponse>
         implements AuthorizationRequestHandler {
-
-    public String getName() {
-        return "register";
+    public String getRouteKey(Request<?> msg) {
+        return null;
     }
 
-    public Response<RegisterResponse> doHandle(Request<?> requestObj) {
+    public String getName() {
+        return "login";
+    }
+
+    public Response<LoginResponse> doHandle(Request<LoginRequest> requestObj) {
         return null;
     }
 }
