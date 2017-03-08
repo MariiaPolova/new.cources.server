@@ -13,9 +13,8 @@
 	<packaging>pom</packaging>
 	<modules>
 		<module>authorization-api</module>
-		<module>authorization-imp</module>
-        <module>authorization-impl</module>
-    </modules>
+		<module>authorization-impl</module>
+	</modules>
 
 	<dependencyManagement>
 		<dependencies>
