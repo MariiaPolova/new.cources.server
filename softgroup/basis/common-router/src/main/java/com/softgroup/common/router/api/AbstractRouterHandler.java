@@ -2,34 +2,22 @@ package com.softgroup.common.router.api;
 
 import com.softgroup.common.protocol.Request;
 import com.softgroup.common.protocol.Response;
+import com.softgroup.common.router.api.factory.RouterHandlerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import javax.annotation.PostConstruct;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-public abstract class AbstractRouterHandler<T extends Handler> implements RouterHandler {
-
-	private Map<String, T> handlerMap = new HashMap();
+public abstract class AbstractRouterHandler<T extends RouterHandler>
+		extends RouterHandlerFactory<T> implements RouterHandler {
 
 	@Autowired
-	private List<T> handlers;
+	private AbstractHandlerFactory  requestHandlerFactory;
 
-	@PostConstruct
-	public void init(){
-		for(T handler : handlers) {
-			handlerMap.put(handler.getName(), handler);
-		}
-	}
-
-	public String getName() {
-		return null;
+	public AbstractHandlerFactory getHandlers() {
+		return requestHandlerFactory;
 	}
 
 	public Response<?> handle(Request<?> msg) {
-		//String command = msg.getHeader().getCommand();
-		return handlerMap.get(getRouteKey(msg)).handle(msg);
+		Handler handler = getHandlers().getHandler(msg);
+		return handler.handle(msg);
 	}
 
 	public String getRouteKey(Request<?> msg) {

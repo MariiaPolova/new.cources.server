@@ -6,17 +6,19 @@ import com.softgroup.common.protocol.Request;
 import com.softgroup.common.protocol.RequestData;
 import com.softgroup.common.protocol.Response;
 import com.softgroup.common.protocol.ResponseData;
+import com.softgroup.common.router.api.factory.RequestHandlerFactory;
 
 import java.lang.reflect.ParameterizedType;
 import java.util.Map;
 
-public abstract class AbstractRequestHandler<T extends RequestData, R extends ResponseData> implements RequestHandler {
+public abstract class AbstractRequestHandler<T extends RequestData, R extends ResponseData>
+		extends RequestHandlerFactory implements RequestHandler {
 
 	private JacksonDataMapper dataMapper;
 
 	@Override
 	public Response<R> handle(Request<?> msg) {
-		Request<T> requestObj = new Request<T>();
+		Request<T> requestObj = new Request<>();
 		requestObj.setHeader(msg.getHeader());
 
 
