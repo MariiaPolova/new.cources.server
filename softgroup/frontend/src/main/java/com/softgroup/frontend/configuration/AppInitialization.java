@@ -1,4 +1,4 @@
-package com.softgroup.frontend;
+package com.softgroup.frontend.configuration;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
@@ -9,12 +9,12 @@ public class AppInitialization extends AbstractAnnotationConfigDispatcherServlet
 
     @Override
     protected Class<?>[] getRootConfigClasses() {
-        return new Class[] { AppConfiguration.class };
+        return new Class<?>[] { RestConfiguration.class };
     }
 
     @Override
     protected Class<?>[] getServletConfigClasses() {
-        return null;
+        return new Class<?>[] {AppConfiguration.class};
     }
 
     @Override
