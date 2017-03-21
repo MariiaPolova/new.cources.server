@@ -31,7 +31,7 @@ public class LoginRequestHandler
         LoginRequest requestData = requestObj.getData();
         LoginResponse loginResponse = new LoginResponse();
        // loginResponse.setToken(requestData.getDeviceToken());
-        loginResponse.setToken("token");
+        loginResponse.setToken("login_token");
         Response<LoginResponse> response = new Response<>();
         response.setHeader(requestObj.getHeader());
         response.setData(loginResponse);

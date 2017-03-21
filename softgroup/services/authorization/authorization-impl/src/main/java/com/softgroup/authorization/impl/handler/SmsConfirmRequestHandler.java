@@ -26,7 +26,7 @@ public class SmsConfirmRequestHandler
     @Override
     public Response<SmsConfirmResponse> doHandle(Request<SmsConfirmRequest> requestObj) {
         SmsConfirmResponse responseData = new  SmsConfirmResponse();
-        responseData.setDeviceToken("sms token");
+        responseData.setDeviceToken("sms_mistery_token123");
 
         Response<SmsConfirmResponse> response = new Response<>();
         response.setHeader(requestObj.getHeader());
@@ -34,7 +34,7 @@ public class SmsConfirmRequestHandler
 
         ResponseStatus status = new ResponseStatus();
         status.setCode(200);
-        status.setMessage("SMS sent");
+        status.setMessage("OK");
 
         response.setStatus(status);
         return response;

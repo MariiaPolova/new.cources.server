@@ -4,7 +4,6 @@ import com.softgroup.common.protocol.Request;
 import com.softgroup.common.protocol.Response;
 import com.softgroup.common.router.api.*;
 import com.softgroup.common.router.api.factory.HandlerFactory;
-import com.softgroup.common.router.api.factory.MainRouterFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -15,14 +14,11 @@ import org.springframework.stereotype.Component;
 public class MainRouterHandler implements Handler{
 
     public String getName() {
-        return "main handler";
+        return "main_handler";
     }
 
-//    @Autowired
-//    HandlerFactory<AbstractRequestHandler> mainRouterFactory;
-
-        @Autowired
-    HandlerFactory<AbstractRequestHandler> routerHandlerFactory;
+    @Autowired
+    HandlerFactory<AbstractRouterHandler> routerHandlerFactory;
 
     @Override
     public Response<?> handle(Request<?> msg) {
