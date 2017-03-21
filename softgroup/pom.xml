@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.softgroup</groupId>
 	<artifactId>softgroup</artifactId>
@@ -10,19 +10,18 @@
 	<name>courses-server</name>
 
 	<modules>
+		<module>frontend</module>
 		<module>services</module>
 		<module>basis</module>
-		<module>frontend</module>
 	</modules>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<spring.core.version>4.2.5.RELEASE</spring.core.version>
-
 		<maven-compiler-plugin.version>3.5.1</maven-compiler-plugin.version>
 		<maven-war-plugin.version>2.6</maven-war-plugin.version>
-
+		<endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
 	</properties>
 
 	<dependencyManagement>
@@ -32,6 +31,12 @@
 			<dependency>
 				<groupId>com.softgroup</groupId>
 				<artifactId>authorization-api</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.softgroup</groupId>
+				<artifactId>authorization-impl</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 
@@ -72,11 +77,7 @@
 				<version>${spring.core.version}</version>
 			</dependency>
 
-			<dependency>
-				<groupId>org.springframework</groupId>
-				<artifactId>spring-webmvc</artifactId>
-				<version>${springframework.version}</version>
-			</dependency>
+
 
 			<!-- TEST -->
 			<dependency>
@@ -98,6 +99,11 @@
 				<version>19.0</version>
 			</dependency>
 
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-webmvc</artifactId>
+				<version>${spring.core.version}</version>
+			</dependency>
 
 		</dependencies>
 	</dependencyManagement>
@@ -123,15 +129,6 @@
 			<artifactId>commons-codec</artifactId>
 			<version>1.10</version>
 		</dependency>
-
-		<!-- MODELMAPPER -->
-		<dependency>
-			<groupId>org.modelmapper</groupId>
-			<artifactId>modelmapper</artifactId>
-			<version>0.7.5</version>
-		</dependency>
-
-
 
 		<!-- test -->
 		<dependency>
@@ -216,13 +213,18 @@
 
 		<dependency>
 			<groupId>org.springframework</groupId>
-			<artifactId>spring-test</artifactId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${spring.core.version}</version>
 		</dependency>
 
 		<dependency>
-			<groupId>org.apache.tomcat.maven</groupId>
-			<artifactId>tomcat7-maven-plugin</artifactId>
-			<version>2.2</version>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
 		</dependency>
 
 	</dependencies>
@@ -237,6 +239,9 @@
 				<configuration>
 					<source>1.8</source>
 					<target>1.8</target>
+					<compilerArguments>
+						<endorseddirs>${endorsed.dir}</endorseddirs>
+					</compilerArguments>
 				</configuration>
 			</plugin>
 
@@ -247,14 +252,17 @@
 				<configuration>
 					<attachClasses>true</attachClasses>
 					<failOnMissingWebXml>false</failOnMissingWebXml>
-					<warName>messenger</warName>
 				</configuration>
 			</plugin>
 
 		</plugins>
-
-
+		<extensions>
+			<extension>
+				<groupId>org.apache.maven.wagon</groupId>
+				<artifactId>wagon-ssh</artifactId>
+				<version>1.0</version>
+			</extension>
+		</extensions>
 	</build>
-
 
 </project>
