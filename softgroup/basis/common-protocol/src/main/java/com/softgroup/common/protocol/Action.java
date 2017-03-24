@@ -2,9 +2,12 @@ package com.softgroup.common.protocol;
 
 import java.io.Serializable;
 
-public class Action <T extends Serializable> implements Serializable {
+/**
+ * Created by polev on 24.03.2017.
+ */
+public class Action<T extends Serializable> implements Serializable {
 
-	private static final long serialVersionUID = 3373910816445037302L;
+    private static final long serialVersionUID = 3373910816445037302L;
 
     private ActionHeader header;
 
