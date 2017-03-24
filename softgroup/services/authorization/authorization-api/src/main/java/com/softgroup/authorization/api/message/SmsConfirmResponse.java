@@ -3,10 +3,9 @@ package com.softgroup.authorization.api.message;
 import com.softgroup.common.protocol.ResponseData;
 
 /**
- * Created by polev on 24.02.2017.
+ * Created by polev on 28.02.2017.
  */
-public class SmsConfirmResponse implements ResponseData  {
-
+public class SmsConfirmResponse implements ResponseData {
     private String deviceToken;
 
     public String getDeviceToken() {
