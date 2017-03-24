@@ -3,10 +3,9 @@ package com.softgroup.authorization.api.message;
 import com.softgroup.common.protocol.RequestData;
 
 /**
- * Created by polev on 24.02.2017.
+ * Created by polev on 28.02.2017.
  */
 public class SmsConfirmRequest implements RequestData {
-
     private String registrationRequestUuid;
     private String authCode;
 
