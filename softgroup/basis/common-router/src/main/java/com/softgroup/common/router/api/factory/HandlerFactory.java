@@ -14,7 +14,7 @@ import java.util.Map;
  * Created by polev on 15.03.2017.
  */
 
-public abstract class HandlerFactory<T extends Handler> {
+public abstract class HandlerFactory<T extends Handler> implements Factory<T>{
 
     private Map<String, T> handlerMap = new HashMap<>();
 
