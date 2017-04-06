@@ -11,9 +11,10 @@ import org.springframework.stereotype.Component;
  * Created by polev on 24.02.2017.
  */
 @Component
-public class AuthorizationRouter extends AbstractRouterHandler<AbstractRequestHandler>
+public class AuthorizationRouter extends AbstractRouterHandler<AuthorizationRequestHandler>
         implements AuthorizationRouterHandler {
-@Override
+
+    @Override
     public String getName() {
         return "authorization";
     }
