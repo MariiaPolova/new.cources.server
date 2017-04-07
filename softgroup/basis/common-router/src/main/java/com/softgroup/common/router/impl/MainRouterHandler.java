@@ -11,10 +11,18 @@ import org.springframework.stereotype.Component;
  * Created by polev on 04.03.2017.
  */
 @Component
-public class MainRouterHandler extends AbstractRouterHandler implements Handler{
+public class MainRouterHandler implements Handler{
 
     public String getName() {
         return "main_handler";
+    }
+
+    @Autowired
+    HandlerFactory<AbstractRouterHandler> routerHandlerFactory;
+
+    @Override
+    public Response<?> handle(Request<?> msg) {
+        return routerHandlerFactory.getHandler(msg).handle(msg);
     }
 
 }

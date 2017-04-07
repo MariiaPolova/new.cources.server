@@ -8,6 +8,7 @@ import com.softgroup.authorization.api.router.AuthorizationRequestHandler;
 import com.softgroup.common.protocol.Request;
 import com.softgroup.common.protocol.Response;
 import com.softgroup.common.protocol.ResponseStatus;
+import com.softgroup.common.protocol.Status;
 import com.softgroup.common.router.api.AbstractRequestHandler;
 import org.springframework.stereotype.Component;
 
@@ -27,19 +28,13 @@ public class RegisterRequestHandler
 
     @Override
     public Response<RegisterResponse> doHandle(Request<RegisterRequest> requestObj) {
-        RegisterRequest requestData = requestObj.getData();
-        RegisterResponse regResponse = new RegisterResponse();
-        regResponse.setAuthCode("111");
-        regResponse.setRegistrationRequestUuid("uiiii");
-        regResponse.setRegistrationTimeoutSec("-1");
-
         Response<RegisterResponse> response = new Response<>();
         response.setHeader(requestObj.getHeader());
-        response.setData(regResponse);
+        response.setData(null);
 
         ResponseStatus status = new ResponseStatus();
-        status.setCode(200);
-        status.setMessage("OK");
+        status.setCode(Status.not_implemented.getId());
+        status.setMessage(Status.not_implemented.toString());
 
         response.setStatus(status);
         return response;
