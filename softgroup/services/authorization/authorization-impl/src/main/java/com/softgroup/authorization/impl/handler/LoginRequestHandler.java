@@ -2,7 +2,6 @@ package com.softgroup.authorization.impl.handler;
 
 import com.softgroup.authorization.api.message.LoginRequest;
 import com.softgroup.authorization.api.message.LoginResponse;
-import com.softgroup.authorization.api.message.SmsConfirmResponse;
 import com.softgroup.authorization.api.router.AuthorizationRequestHandler;
 import com.softgroup.common.protocol.*;
 import com.softgroup.common.router.api.AbstractRequestHandler;
@@ -27,11 +26,10 @@ public class LoginRequestHandler
 
         Response<LoginResponse> response = new Response<>();
         response.setHeader(requestObj.getHeader());
-        response.setData(null);
 
         ResponseStatus status = new ResponseStatus();
-        status.setCode(Status.not_implemented.getId());
-        status.setMessage(Status.not_implemented.toString());
+        status.setCode(HTTPStatusCode.NOT_IMPLEMENTED.getId());
+        status.setMessage(HTTPStatusCode.NOT_IMPLEMENTED.getStr());
 
         response.setStatus(status);
         return response;
