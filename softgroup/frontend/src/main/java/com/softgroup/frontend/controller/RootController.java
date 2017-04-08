@@ -19,8 +19,7 @@ import java.nio.charset.StandardCharsets;
  * Created by polev on 05.03.2017.
  */
 @RestController
-@RequestMapping(path = "/test", method = RequestMethod.GET)
-public class TestController {
+public class RootController {
 
     @Autowired
     Handler mainRouterHandler;
@@ -35,10 +34,4 @@ public class TestController {
         return jacksonDataMapper.objectToString(mainRouterHandler.handle(msg));
 
     }
-
-    @RequestMapping(path = "/str")
-    public String testRequest() {
-        return "test";
-    }
-
 }
