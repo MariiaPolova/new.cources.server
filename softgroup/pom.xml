@@ -48,6 +48,18 @@
 
 			<dependency>
 				<groupId>com.softgroup</groupId>
+				<artifactId>common-dao-api</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.softgroup</groupId>
+				<artifactId>common-dao-impl</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.softgroup</groupId>
 				<artifactId>common-exceptions</artifactId>
 				<version>${project.version}</version>
 			</dependency>

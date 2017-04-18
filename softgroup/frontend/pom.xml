@@ -64,6 +64,16 @@
             <version>3.1.0</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.softgroup</groupId>
+            <artifactId>common-dao-api</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.softgroup</groupId>
+            <artifactId>common-dao-impl</artifactId>
+        </dependency>
+
     </dependencies>
 
 </project>

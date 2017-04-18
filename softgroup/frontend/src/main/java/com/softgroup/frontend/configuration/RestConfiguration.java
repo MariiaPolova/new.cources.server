@@ -1,6 +1,7 @@
 package com.softgroup.frontend.configuration;
 
 import com.softgroup.authorization.impl.configuration.AuthorizationImplConfig;
+import com.softgroup.common.dao.impl.configuration.CommonDaoAppConfig;
 import com.softgroup.common.datamapper.configuration.DataMapperAppCfg;
 import com.softgroup.common.router.configuration.CommonRouterConfig;
 import org.springframework.context.annotation.ComponentScan;
@@ -18,6 +19,7 @@ import org.springframework.context.annotation.Import;
 @Import(value = {
         DataMapperAppCfg.class,
         AuthorizationImplConfig.class,
+        CommonDaoAppConfig.class,
         CommonRouterConfig.class})
 public class RestConfiguration {
 }
